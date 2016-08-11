@@ -1,0 +1,8 @@
+settings.json
+.meteor/local/
+node_modules/
+*.png
+*.gif
+*.jpg
+*.jpeg
+.meteor/dev_bundle/
