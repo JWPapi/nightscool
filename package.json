@@ -19,7 +19,11 @@
     "react-komposer": "^1.8.0",
     "react-mounter": "^1.2.0",
     "react-router": "^2.5.1",
+<<<<<<< HEAD
     "reactionic": "^1.1.2"
+=======
+    "reactionic": "^1.1.2",
+>>>>>>> parent of 91b16a9... Minor Fix
   },
   "devDependencies": {}
 }
