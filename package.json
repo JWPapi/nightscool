@@ -19,7 +19,8 @@
     "react-komposer": "^1.8.0",
     "react-mounter": "^1.2.0",
     "react-router": "^2.5.1",
-    "reactionic": "^1.1.2",
+    "react-search-input": "^0.10.1",
+    "reactionic": "^1.1.2"
   },
   "devDependencies": {}
 }
