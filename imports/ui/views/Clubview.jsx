@@ -5,12 +5,13 @@ import Tile from '/imports/ui/components/Tile.jsx';
 import Map from '/imports/ui/components/Map.jsx';
 import ReservationButton from '/imports/ui/components/ReservationButton.jsx';
 const PostSubs = new SubsManager();
-import {IonContent, IonNavBar, IonNavBackButton,IonSpinner } from 'reactionic';
+import {IonContent, IonNavBar, IonNavBackButton,IonSpinner,IonModal} from 'reactionic';
 var backButton = (<IonNavBackButton icon="ion-android-arrow-back" color="" type="clear" customClasses="button-stage"/>);
 
 class App extends Component {
 
   render() {
+    var drinksModal = <DrinksModal {...this.props} />;
     return (
       <div className="custombg">
         <IonNavBar customClasses="bar-dark" title={this.props.club
@@ -30,7 +31,9 @@ class App extends Component {
                 <ReservationButton href={"/concierge/" + this.props.club.text}/>
                 <div className="tilecontainer row">
                   <Tile image="/images/IconPics/Gallerien.png" caption="Gallerys" href={"/albums/" + this.props.club.fbid}/>
-                  <Tile image="/images/IconPics/Bottles.png" customClasses="inactive" caption="Bottles" href="#"/>
+                  {this.props.club.drinks
+                  ? <Tile image="/images/IconPics/Bottles.png" caption="Bottles" modal={drinksModal} />
+                  : <Tile image="/images/IconPics/Bottles.png" customClasses="inactive" caption="Bottles"   />}
                 </div>
                 <div className="tilecontainer row">
                   <Tile image="/images/IconPics/DJ.png"  caption="Events" href={"/calendar/" + this.props.club.text}/>
@@ -50,6 +53,23 @@ class App extends Component {
 App.propTypes = {
   club: PropTypes.object
 };
+
+
+class DrinksModal extends Component {
+  render() {
+    return (
+      <IonModal {...this.props}
+                customTemplate={false}
+                title="Drinks & Bottles"
+                barClasses="bar-dark"
+                customClasses="">
+        <div><img className="Drinks" src={"/images/" + this.props.club.drinks} /></div>
+      </IonModal>
+    );
+  }
+}
+
+
 
 export default createContainer((params) => {
   PostSubs.subscribe('clubs');
