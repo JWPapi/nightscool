@@ -5,7 +5,7 @@
     "start": "meteor run"
   },
   "dependencies": {
-    "react": "^15.1.0",
+    "react": "^15.3.0",
     "react-addons-create-fragment": "^15.1.0",
     "react-addons-css-transition-group": "^15.1.0",
     "react-addons-linked-state-mixin": "^15.1.0",
@@ -20,7 +20,7 @@
     "react-mounter": "^1.2.0",
     "react-router": "^2.5.1",
     "react-search-input": "^0.10.1",
-    "reactionic": "^1.1.2"
+    "reactionic": "1.2.0-beta.0"
   },
   "devDependencies": {}
 }

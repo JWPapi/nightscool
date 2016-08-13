@@ -86,7 +86,7 @@ class App extends Component {
                     <p className="intro col s9">Reserve your table at one of our venues with your personal concierge!</p>
                     <img src="/images/vip.png" className="img-responsive col s3"/></div>
                   <IonItem divider>Where do you want to Party?</IonItem>
-                  <label class="item item-input item-select">
+                  <label>
                     {this.props.club
                       ? <select ref="Club" disabled>
                         <option value={this.props.club}>{this.props.club}</option>

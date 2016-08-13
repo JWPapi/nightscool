@@ -11,7 +11,6 @@ var backButton = (<IonNavBackButton icon="ion-android-arrow-back" color="" type=
 class App extends Component {
 
   render() {
-    var drinksModal = <DrinksModal {...this.props} />;
     return (
       <div className="custombg">
         <IonNavBar customClasses="bar-dark" title={this.props.club
@@ -32,12 +31,12 @@ class App extends Component {
                 <div className="tilecontainer row">
                   <Tile image="/images/IconPics/Gallerien.png" caption="Gallerys" href={"/albums/" + this.props.club.fbid}/>
                   {this.props.club.drinks
-                  ? <Tile image="/images/IconPics/Bottles.png" caption="Bottles" modal={drinksModal} />
+                  ? <Tile image="/images/IconPics/Bottles.png" caption="Bottles" modal={(<DrinksModal {...this.props} />)} />
                   : <Tile image="/images/IconPics/Bottles.png" customClasses="inactive" caption="Bottles"   />}
                 </div>
                 <div className="tilecontainer row">
                   <Tile image="/images/IconPics/DJ.png"  caption="Events" href={"/calendar/" + this.props.club.text}/>
-                  <Tile image="/images/IconPics/Club.png" customClasses="inactive" caption="About"  href="#" />
+                  <Tile image="/images/IconPics/Club.png" customClasses={this.props.club.fbData.description ? undefined : 'inactive'} caption="About" modal={this.props.club.fbData.description ? (<AboutModal {...this.props} />) : undefined} />
                 </div>
               </div>
               <Map place={this.props.club.fbData}/>
@@ -64,6 +63,20 @@ class DrinksModal extends Component {
                 barClasses="bar-dark"
                 customClasses="">
         <div><img className="Drinks" src={"/images/" + this.props.club.drinks} /></div>
+      </IonModal>
+    );
+  }
+}
+
+class AboutModal extends Component {
+  render() {
+    return (
+      <IonModal {...this.props}
+                customTemplate={false}
+                title="About"
+                barClasses="bar-dark"
+                customClasses="">
+        <div>{this.props.club.fbData.description}</div>
       </IonModal>
     );
   }
