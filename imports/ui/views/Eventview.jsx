@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import {HTTP} from 'meteor/http';
 import ReservationButton from '/imports/ui/components/ReservationButton.jsx';
 import Map from '/imports/ui/components/Map.jsx';
-const token = '&access_token=CAAAACZAVC6ygBAGrwdPokM2EKPlZBQUHRZCWQH8CubDAw9xV2R51s1XBqTcxQhZALXyZBltZA0oCTtFciywBANbrruAZBttf4aejWyETVXjHhqfJnt7UQhtijF3cWHZAwztEWZCbGyXw3ND2yRl6gwxHJQTFLy6TvFPwzsbUJZCONrBJ45VK0q7cZBXooqk0dfbgZBgZD';
+const token = '&access_token=233374643706343|70123ff84b31266934e8864cd06f784a';
 import {IonContent, IonNavBar, IonNavBackButton, IonSpinner} from 'reactionic';
 
 var backButton = (<IonNavBackButton icon="ion-android-arrow-back" color="" type="clear" customClasses="button-stage"/>);

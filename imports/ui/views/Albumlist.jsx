@@ -15,7 +15,7 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    HTTP.get('https://graph.facebook.com/' + this.props.params.clubId + "?fields=albums{id,name,cover_photo{source}},name" + token, (err, resp) => {
+    HTTP.get('https://graph.facebook.com/' + this.props.params.clubId + "?fields=albums.limit(50){id,name,cover_photo{source}},name" + token, (err, resp) => {
       this.setState({
         albums: resp.data.albums.data.filter(c => (c.name !== "Cover Photos" && c.name !== "Timeline Photos" && c.name !== "Mobile Uploads"))
         .map(c => <Tile key={c.id} image={c.cover_photo.source} caption={c.name} href={'/gallery/' + c.id}/>),

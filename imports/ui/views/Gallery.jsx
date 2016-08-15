@@ -14,7 +14,7 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    HTTP.get('https://graph.facebook.com/' + this.props.params.galleryId + '?fields=photos{source,id},name' + token, (err, resp) => {
+    HTTP.get('https://graph.facebook.com/' + this.props.params.galleryId + '?fields=photos.limit(150){source,id},name' + token, (err, resp) => {
       this.setState({
         images: resp.data.photos.data.map(c => <Gallery image={c.source} key={c.id} linkclass="swipebox" href={c.source}/>),
         title: resp.data.name
