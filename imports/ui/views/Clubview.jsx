@@ -27,7 +27,7 @@ class App extends Component {
                 </div>
                 <ReservationButton href={"/concierge/" + this.props.club.text}/>
                 <div className="tilecontainer row">
-                  <Tile image="/images/IconPics/Gallerien.png" caption="Gallerys" href={"/albums/" + this.props.club.fbid}/>
+                  <Tile image="/images/IconPics/Gallerien.png" caption="Gallerys" href={"/albums/" + (this.props.club.galleryids ? this.props.club.galleryids : this.props.club.fbid)}/>
                   <Tile image="/images/IconPics/Bottles.png" caption="Bottles" {...(this.props.club.drinks ? {modal: (<DrinksModal {...this.props} />), customClasses: null} : {modal: null, customClasses: 'inactive'})} />
                 </div>
                 <div className="tilecontainer row">

@@ -15,11 +15,12 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    HTTP.get('https://graph.facebook.com/' + this.props.params.clubId + "?fields=albums.limit(50){id,name,cover_photo{source}},name" + token, (err, resp) => {
+    HTTP.get('https://graph.facebook.com/?ids=' + this.props.params.clubId + "&fields=albums.limit(50){id,name,cover_photo{source},created_time},name" + token, (err, resp) => {
       this.setState({
-        albums: resp.data.albums.data.filter(c => (c.name !== "Cover Photos" && c.name !== "Timeline Photos" && c.name !== "Mobile Uploads"))
+        albums: Object.keys(resp.data).map(c => resp.data[c]).reduce((p,c) => p.concat(c.albums.data.filter(c => (c.name !== "Cover Photos" && c.name !== "Timeline Photos" && c.name !== "Mobile Uploads"))), [])
+        .sort((a,b) =>  Date.parse(a.created_time.substring(0,19)) > Date.parse(b.created_time.substring(0,19)) ? -1 : 1)
         .map(c => <Tile key={c.id} image={c.cover_photo.source} caption={c.name} href={'/gallery/' + c.id}/>),
-        title: resp.data.name
+        title: Object.keys(resp.data).map(c => resp.data[c])[0].name
       })
     });
   }

@@ -20,7 +20,8 @@
     "react-mounter": "^1.2.0",
     "react-router": "^2.5.1",
     "react-search-input": "^0.10.1",
-    "reactionic": "1.2.0-beta.0"
+    "reactionic": "1.2.0-beta.0",
+    "swipebox": "^1.4.6"
   },
   "devDependencies": {}
 }
