@@ -42,7 +42,7 @@ var main = function () {
    return page;
  });
 
- let mainRoute = (
+ const mainRoute = (
    <Route component={IonicLayout}>
      <IndexRoute component={Calendar} />
      {pageRoutes}

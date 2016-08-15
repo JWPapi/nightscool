@@ -56,20 +56,15 @@ class Calendar extends Component {
     var searchButton = (
       <IonButton icon="button icon ion-android-search" color="" type="clear" customClasses="button-stage" onClick={this.displaySearchfield.bind(this)}></IonButton>
     )
-    console.log(this.props.events);
-        var filteredeventlist = this.props.events.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS));
-        console.log(filteredeventlist);
+    var filteredeventlist = this.props.events.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS));
     const days = _.groupBy(filteredeventlist, eventobj => {
       let starttime = new Date(eventobj.start_time);
       return whichDay(eventobj.start_time) + " " + starttime.getUTCDate() + '.' + (starttime.getUTCMonth() + 1)
     });
-    console.log(days);
     let demoPopover = <DemoPopover dropdown={Object.keys(days)}/>
     return (
       <div className="custombg">
-        <IonNavBar customClasses="bar-dark" title={<img src="/images/logo.gif" className="logo" />} leftButton={this.props.params.club
-          ? backButton
-        : searchButton} rightButton={rightHeaderButton}/>
+        <IonNavBar customClasses="bar-dark" title={<img src="/images/logo.gif" className="logo" />} leftButton={this.props.params.club ? backButton : searchButton} rightButton={rightHeaderButton} />
         <IonContent>
           {this.state.searchField}
           {days

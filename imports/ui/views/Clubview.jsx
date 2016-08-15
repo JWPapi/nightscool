@@ -13,9 +13,7 @@ class App extends Component {
   render() {
     return (
       <div className="custombg">
-        <IonNavBar customClasses="bar-dark" title={this.props.club
-          ? this.props.club.text
-        : "..."} leftButton={backButton}/>
+        <IonNavBar customClasses="bar-dark" title={this.props.club ? this.props.club.text : "..."} leftButton={backButton}/>
         <IonContent>
           {this.props.club
             ? <div>
@@ -30,13 +28,11 @@ class App extends Component {
                 <ReservationButton href={"/concierge/" + this.props.club.text}/>
                 <div className="tilecontainer row">
                   <Tile image="/images/IconPics/Gallerien.png" caption="Gallerys" href={"/albums/" + this.props.club.fbid}/>
-                  {this.props.club.drinks
-                  ? <Tile image="/images/IconPics/Bottles.png" caption="Bottles" modal={(<DrinksModal {...this.props} />)} />
-                  : <Tile image="/images/IconPics/Bottles.png" customClasses="inactive" caption="Bottles"   />}
+                  <Tile image="/images/IconPics/Bottles.png" caption="Bottles" {...(this.props.club.drinks ? {modal: (<DrinksModal {...this.props} />), customClasses: null} : {modal: null, customClasses: 'inactive'})} />
                 </div>
                 <div className="tilecontainer row">
-                  <Tile image="/images/IconPics/DJ.png"  caption="Events" href={"/calendar/" + this.props.club.text}/>
-                  <Tile image="/images/IconPics/Club.png" customClasses={this.props.club.fbData.description ? undefined : 'inactive'} caption="About" modal={this.props.club.fbData.description ? (<AboutModal {...this.props} />) : undefined} />
+                  <Tile image="/images/IconPics/DJ.png" caption="Events" href={"/calendar/" + this.props.club.text}/>
+                  <Tile image="/images/IconPics/Club.png" caption="About" {...(this.props.club.fbData.description ? {modal: (<AboutModal {...this.props} />), customClasses: null} : {modal: null, customClasses: 'inactive'})} />
                 </div>
               </div>
               <Map place={this.props.club.fbData}/>
@@ -74,9 +70,8 @@ class AboutModal extends Component {
       <IonModal {...this.props}
                 customTemplate={false}
                 title="About"
-                barClasses="bar-dark"
-                customClasses="">
-        <div>{this.props.club.fbData.description}</div>
+                barClasses="bar-dark">
+        <div className="card"><div className="card-content">{this.props.club.fbData.description}</div></div>
       </IonModal>
     );
   }
