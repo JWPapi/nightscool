@@ -25,28 +25,27 @@ body {
     .backdrop {
         display: block;
     }
-    div.inactive
-    {
-      opacity:0.8;
-      filter:gray;
-      -webkit-filter:grayscale(0.7);
-      filter:grayscale(0.7);
+    div.inactive {
+        opacity: 0.8;
+        filter:gray;
+        -webkit-filter:grayscale(0.7);
+        filter:grayscale(0.7);
     }
-    .bar .title{
-      margin: 0 36px;
+    .bar .title {
+        margin: 0 36px;
     }
     img.Drinks {
-      width: 100%;
+        width: 100%;
     }
     .modal {
-      background-color: #fafafa;
-    .padding {
-      padding:0px;
+        background-color: #fafafa;
+        .padding {
+            padding: 0;
+        }
     }
-  }  
 }
-a.calenderpopoveritem{
-  padding:8px;
+a.calenderpopoveritem {
+    padding: 8px;
 }
 .card {
     margin: 8px 0 4px;
@@ -144,14 +143,19 @@ a.calenderpopoveritem{
         margin: 0;
     }
 }
-
 body .container {
     width: 100%;
 }
-
 body {
     .platform-android {
         font-family: "Robotic", sans-serif;
+        .tiles {
+            padding: 2px;
+        }
+        select {
+            display: inline-block;
+            padding: 10px;
+        }
     }
     color: $color;
 }
@@ -170,15 +174,11 @@ body * {
 body a:hover {
     text-decoration: none;
 }
-
 .square {
     padding-bottom: 100%;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-}
-.tiles {
-    padding: 2px;
 }
 div.eventdescription {
     white-space: pre-wrap;
@@ -258,35 +258,26 @@ body div.custombg::before {
     position: fixed;
 }
 /*Disabling platform specific tweaks */
-.platform-ios.platform-cordova:not(.fullscreen) .bar-header
-{
-  height: 44px !important;
+.platform-ios.platform-cordova:not(.fullscreen) .bar-header {
+    height: 44px !important;
 }
-.platform-ios.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader)
-{
-  height: 44px !important;
+.platform-ios.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader) {
+    height: 44px !important;
 }
-
-.platform-ios.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader).item-input-inset .item-input-wrapper
-{
-  margin-top: 0px !important;
+.platform-ios.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader).item-input-inset .item-input-wrapper {
+    margin-top: 0 !important;
 }
-
-.platform-ios.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader) > *
-{
-  margin-top: 0px !important;
+.platform-ios.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader) > * {
+    margin-top: 0 !important;
 }
-
-.platform-ios.platform-cordova:not(.fullscreen) .tabs-top > .tabs, .platform-ios.platform-cordova:not(.fullscreen) .tabs.tabs-top
-{
-  top: 44px !important;
+.platform-ios.platform-cordova:not(.fullscreen) .tabs-top > .tabs,
+.platform-ios.platform-cordova:not(.fullscreen) .tabs.tabs-top {
+    top: 44px !important;
 }
-
-.platform-ios.platform-cordova:not(.fullscreen) .has-header, .platform-ios.platform-cordova:not(.fullscreen) .bar-subheader
-{
-  top: 44px !important;
+.platform-ios.platform-cordova:not(.fullscreen) .bar-subheader,
+.platform-ios.platform-cordova:not(.fullscreen) .has-header {
+    top: 44px !important;
 }
-
 .platform-ios.platform-cordova:not(.fullscreen) .has-subheader {
-  top: 88px !important;
+    top: 88px !important;
 }

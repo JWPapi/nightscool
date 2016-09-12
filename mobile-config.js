@@ -1,10 +1,10 @@
 App.info({
-    id: 'com.ffmnightsapp.006',
+    id: 'ffm.nights',
     name: 'FFM Nights',
     description: 'Your nightlife navigator',
     author: 'Julian Tosun',
     email: 'juliantosun@gmail.com',
-    version: '0.1.22'
+    version: '0.2.4'
 });
 
 App.setPreference('StatusBarOverlaysWebView', false);
@@ -41,7 +41,8 @@ App.launchScreens({
 
 App.accessRule('https://*.googleapis.com');
 App.accessRule('https://graph.facebook.com');
-App.accessRule('https://scontent.xx.fbcdn.net');
+App.accessRule('https://*.fbcdn.net');
+App.accessRule('https://*.akamaihd.net');
 App.accessRule('https://fonts.gstatic.com');
 App.accessRule('https://maps.google.de',{type: 'navigation'})
 App.accessRule('http://www.google-analytics.com');
